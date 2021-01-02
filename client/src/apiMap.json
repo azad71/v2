@@ -1,0 +1,36 @@
+{
+  "login": {
+    "url": "/api/auth/login",
+    "method": "post"
+  },
+  
+  "signup": {
+    "url": "/api/auth/signup",
+    "method": "post"
+  },
+
+  "getPosts": {
+    "url": "/api/posts",
+    "method": "get"
+  },
+
+  "createPost": {
+    "url": "/api/posts/create",
+    "method": "post"
+  },
+
+  "likePost": {
+    "url": "/api/posts/like/:postId",
+    "method": "post"
+  },
+
+  "unlikePost": {
+    "url": "/api/posts/unlike/:postId",
+    "method": "post"
+  },
+
+  "addComment": {
+    "url":"/api/posts/comment/:postId",
+    "method": "post"
+  }
+}

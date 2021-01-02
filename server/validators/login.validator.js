@@ -1,0 +1,34 @@
+// import dependencies
+// load libraries
+const validator = require("validator");
+
+// load utility functions
+const isEmpty = require("../utils/is-empty");
+
+module.exports = function validateLoginInput(data) {
+  let errors = {};
+
+  data.email = !isEmpty(data.email) ? data.email : "";
+  data.password = !isEmpty(data.password) ? data.password : "";
+
+  if (!validator.isEmail(data.email)) {
+    errors.email = "Invalid Email";
+  }
+
+  if (validator.isEmpty(data.email)) {
+    errors.email = "Email field is required";
+  }
+
+  if (validator.isEmpty(data.password)) {
+    errors.password = "Password field is required";
+  }
+
+  if (data.password.length < 5) {
+    errors.password = "Password has to be atleast 6 characters";
+  }
+
+  return {
+    errors,
+    isValid: isEmpty(errors),
+  };
+};
